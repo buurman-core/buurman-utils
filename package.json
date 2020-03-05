@@ -44,8 +44,12 @@
     },
     "dependencies": {
         "@types/fs-extra": "^8.1.0",
+        "@types/js-yaml": "^3.12.2",
         "@types/lodash.template": "^4.4.6",
+        "execa": "^4.0.0",
         "fs-extra": "^8.1.0",
-        "lodash.template": "^4.5.0"
+        "js-yaml": "^3.13.1",
+        "lodash.template": "^4.5.0",
+        "tmp-promise": "^2.0.2"
     }
 }
