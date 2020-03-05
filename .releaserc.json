@@ -1,0 +1,12 @@
+{
+    "plugins": [
+        "@semantic-release/commit-analyzer",
+        "@semantic-release/release-notes-generator",
+        ["@semantic-release/npm", { "pkgRoot": "pkg" }],
+        [
+            "@semantic-release/changelog",
+            { "changelogFile": "docs/CHANGELOG.md" }
+        ],
+        ["@semantic-release/github", { "assets": ["docs/CHANGELOG.md"] }]
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "extends": ["config:base", ":semanticCommitType(chore)"],
+    "baseBranches": ["develop"],
+    "labels": ["bot(renovate)", "impact(low)"],
+    "semanticCommits": true,
+    "lockFileMaintenance": { "enabled": true },
+    "ignoreNpmrcFile": true,
+    "vulnerabilityAlerts": {
+        "labels": [
+            "bot(renovate)",
+            "type(vulnerability)",
+            "priority(high)",
+            "impact(high)"
+        ],
+        "assignees": ["@jewetnitg"]
+    },
+    "packageRules": [
+        {
+            "updateTypes": [
+                "minor",
+                "patch",
+                "pin",
+                "digest",
+                "lockFileMaintenance",
+                "rollback"
+            ],
+            "automerge": true
+        },
+        {
+            "updateTypes": ["major"],
+            "automerge": false,
+            "assignees": ["@jewetnitg"],
+            "labels": ["bot(renovate)", "impact(breaking-change)"]
+        }
+    ]
+}
