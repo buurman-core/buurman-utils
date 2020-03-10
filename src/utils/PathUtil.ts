@@ -1,5 +1,5 @@
 import { join, relative, resolve } from "path";
-import { ActionRunContext } from "./ActionRunContext";
+import { ActionRunContext } from "../action/models/ActionRunContext";
 
 export const PathUtil = ({ featurePath }: ActionRunContext) => {
     const pathUtil = {

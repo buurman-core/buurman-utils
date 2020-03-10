@@ -40,16 +40,24 @@
         "lint-staged": "^10.0.8",
         "prettier": "^1.19.1",
         "semantic-release": "^17.0.4",
-        "typescript": "^3.8.3"
+        "ts-node": "^8.6.2"
     },
     "dependencies": {
+        "@types/diff": "^4.0.2",
         "@types/fs-extra": "^8.1.0",
         "@types/js-yaml": "^3.12.2",
         "@types/lodash.template": "^4.4.6",
+        "@types/ramda": "^0.26.43",
+        "@types/recursive-readdir": "^2.2.0",
+        "@types/tmp": "^0.1.0",
+        "diff": "^4.0.2",
         "execa": "^4.0.0",
         "fs-extra": "^8.1.0",
         "js-yaml": "^3.13.1",
         "lodash.template": "^4.5.0",
-        "tmp-promise": "^2.0.2"
+        "ramda": "^0.27.0",
+        "recursive-readdir": "^2.2.2",
+        "tmp-promise": "^2.0.2",
+        "typescript": "^3.8.3"
     }
 }
