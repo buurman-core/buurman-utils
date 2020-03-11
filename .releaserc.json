@@ -7,11 +7,17 @@
             "@semantic-release/changelog",
             { "changelogFile": "docs/CHANGELOG.md" }
         ],
-        ["@semantic-release/github", { "assets": ["docs"] }],
+        ["@semantic-release/github", { "assets": ["docs/**"] }],
         [
             "@semantic-release/git",
             {
-                "assets": ["docs", "package.json", "package-lock.json"],
+                "assets": [
+                    "docs",
+                    "package.json",
+                    "package-lock.json",
+                    "pkg",
+                    "src"
+                ],
                 "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
             }
         ]
