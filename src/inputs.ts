@@ -1,5 +1,40 @@
-import { getInputTypePrimitive, InputType } from "./models/InputType";
-import { InputValues } from "./models/InputValues";
+export enum InputType {
+    string = "string",
+    boolean = "boolean",
+    number = "number",
+    object = "object",
+    array = "array",
+}
+
+export type InputPrimitive = string | number | boolean | object | any[];
+
+export type getInputTypePrimitive<
+    T extends InputType
+> = T extends InputType.string
+    ? string
+    : T extends InputType.number
+    ? number
+    : T extends InputType.boolean
+    ? boolean
+    : T extends InputType.object
+    ? object
+    : T extends InputType.array
+    ? any[]
+    : unknown;
+
+export type getInputTypeEnum<T extends InputPrimitive> = T extends string
+    ? InputType.string
+    : T extends number
+    ? InputType.number
+    : T extends boolean
+    ? InputType.boolean
+    : T extends number
+    ? InputType.number
+    : T extends object
+    ? InputType.object
+    : T extends any[]
+    ? InputType.array
+    : unknown;
 
 export interface Input<TType extends InputType> {
     description: string;
@@ -7,6 +42,18 @@ export interface Input<TType extends InputType> {
     default?: getInputTypePrimitive<TType>;
     required?: boolean;
 }
+
+export type InputValues<
+    TInputs extends { [name: string]: Input<InputType> }
+> = {
+    [P in keyof TInputs]: getInputTypePrimitive<TInputs[P]["type"]>;
+};
+
+export type InputDefinitions<
+    TInputs extends { [name: string]: InputPrimitive }
+> = {
+    [P in keyof TInputs]: Input<getInputTypeEnum<TInputs[P]>>;
+};
 
 export const validateInputs = <
     TInputs extends { [name: string]: Input<InputType> },
