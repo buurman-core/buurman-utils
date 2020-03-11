@@ -16,12 +16,12 @@ export interface ActionRunContext {
     path?: string;
 }
 
-export interface ActionModule<TInputs extends InputValues<any>> {
+export interface ActionModule<TInputs extends InputValues> {
     run: Action<TInputs>;
 }
 
-export interface Action<TInputs extends InputValues<any>> {
-    (context: ActionRunContext, inputs?: TInputs): Promise<void>;
+export interface Action<TInputs extends InputValues> {
+    (context: ActionRunContext, inputs: TInputs): Promise<void>;
 }
 
 export interface ActionConfig<
@@ -44,7 +44,7 @@ export const getActionConfig = async <
         ),
     ) as ActionConfig<TInputs>;
 
-export const getAction = <TInputValues extends InputValues<any>>(
+export const getAction = <TInputValues extends InputValues>(
     actionReference: string,
 ) =>
     withDir(
@@ -57,7 +57,7 @@ export const getAction = <TInputValues extends InputValues<any>>(
         { unsafeCleanup: true },
     );
 
-export const runAction = async <TInputValues extends InputValues<any>>(
+export const runAction = async <TInputValues extends InputValues>(
     actionReference: string,
     context: ActionRunContext,
     inputs: TInputValues = {} as TInputValues,

@@ -2,8 +2,11 @@
     "name": "buurman-utils",
     "version": "1.0.0",
     "description": "A collection of utilities for use in buurman features and actions",
+    "types": "pkg/dist-types/index.d.ts",
+    "main": "pkg/dist-node/index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
+        "postinstall": "npm run build",
         "build": "pika build",
         "format": "prettier --loglevel warn --write \"**/*.{ts,md,json,yml}\"",
         "semantic-release": "semantic-release",
